@@ -1,36 +1,32 @@
-// app/screens/SplashScreen.js
-
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
-const SplashScreen = ({ navigation }) => {
+export default function SplashScreen({ navigation }) {
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      navigation.replace('Main');
-    }, 3000);
-
-    return () => clearTimeout(timeout);
+    setTimeout(() => {
+      navigation.replace('Home');
+    }, 2000); // 2 seconds delay
   }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <Image 
+        source={require('../assets/logo.png')} // use logo image for splash screen
+        style={styles.logo}
+      />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
   },
   logo: {
-    width: 200,
-    height: 200,
-    resizeMode: 'contain',
+    width: 150,
+    height: 150,
   },
 });
-
-export default SplashScreen;
